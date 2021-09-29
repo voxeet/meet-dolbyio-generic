@@ -1,0 +1,23 @@
+.call-to-action-button {
+  display: flex;
+  align-items: center;
+  .cta-text {
+    font-size: 16px;
+  }
+  .cta-button {
+    margin: 0 20px;
+    padding: 11px 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3c4bf4 0%, #7340f5 100%);
+    border: none;
+    color: white;
+    font-size: 16px;
+  }
+
+  .cta-button:hover {
+    background: #4449f4;
+  }
+}

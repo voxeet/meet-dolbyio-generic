@@ -1,0 +1,16 @@
+.participant-grid-item {
+  width: 16rem;
+  height: 16rem;
+  margin: 0.33rem;
+  border-radius: 0.33rem;
+  position: relative;
+  background: linear-gradient(
+    0deg,
+    rgba(37, 37, 37, 1) 0%,
+    rgb(80, 80, 80) 100%
+  );
+
+  &__video {
+    border-radius: inherit;
+  }
+}

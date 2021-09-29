@@ -1,0 +1,66 @@
+@import './styles/colors.scss';
+.App {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  background: transparent;
+
+  .utility-bar {
+    background-color: $primary-dark-3;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    .top,
+    .bottom {
+      width: 100%;
+      display: flex;
+      color: white;
+      font-size: 18px;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .location-id {
+        font-weight: bold;
+        font-size: 25px;
+      }
+      .location-time {
+        font-size: 20px;
+      }
+    }
+
+    .bottom {
+      justify-content: space-between;
+      /* To counterbalance app controls in layout. Invisible but impacts layout. */
+      .counterweight {
+        width: 128px;
+      }
+    }
+
+   .participant-grid > .participant-grid-item.flipped >  video {
+      object-fit: cover;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 0;
+      position: absolute;
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+      -moz-transform: rotateY(180deg); /* Firefox */
+     }
+
+
+
+  }
+}
