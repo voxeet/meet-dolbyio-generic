@@ -32,5 +32,5 @@ with the credentials from your application, found here: https://dolby.io/dashboa
 After all credentials are set, you can run with:
 ```js
 npm install
-npm start
+npm run start
 ```
