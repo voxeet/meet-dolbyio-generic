@@ -62,7 +62,7 @@ export default function MediaSelectors() {
 
   return (
     <div className="media-selectors">
-      <div className="media-selectors__icon" onClick={handleLinkShareClick}>
+      <div className="app-controls__button" onClick={handleLinkShareClick}>
         <LinkIcon
           width={24}
           height={24}
@@ -75,7 +75,7 @@ export default function MediaSelectors() {
       >
         Location URL Copied to Clipboard
       </div>
-      <div className="media-selectors__icon" onClick={handleClick}>
+      <div className="app-controls__button" onClick={handleClick}>
         <SettingsIcon
           width={24}
           height={24}

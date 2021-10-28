@@ -14,16 +14,19 @@ export default function ParticipantGridItem({ participantInfo, isSelf }) {
     navigator.attachMediaStream(videoRef.current, stream);
   }, []);
 
-  // watcher for isVideo flag
+  // watcher for stream
   useEffect(() => {
-    if (isVideo) {
+    if (stream) {
       setupVideo({ stream });
     }
   }, [isVideo, stream, ref, id, setupVideo]);
 
   return (
-    <div ref={ref} className={`participant-grid-item${isSelf?' flipped':''}`}>
-      {isVideo ? (
+    <div
+      ref={ref}
+      className={`participant-grid-item${isSelf ? ' flipped' : ''}`}
+    >
+      {stream ? (
         <video
           id="video-object"
           className="participant-grid-item__video"

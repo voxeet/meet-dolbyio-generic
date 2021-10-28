@@ -8,6 +8,11 @@ import {
 } from '../../utils/voxeetUtils';
 import MicOnOffIcon from '../../components/assets/MicOnOffIcon';
 import VideoOnOffIcon from '../../components/assets/VideoOnOffIcon';
+// internal
+// components
+import MediaSelectors from '../UI/MediaSelectors/MediaSelectors';
+// style
+import '../UI/MediaSelectors/MediaSelectors.scss';
 import './AppControls.scss';
 
 export const AppControls = () => {
@@ -15,7 +20,7 @@ export const AppControls = () => {
   const [isUserAudioActive, setIsUserAudioActive] = useState(true);
   // event handlers
   const handleVideoButton = useCallback(({ isStart }) => {
-    if (isStart) {
+    if (!isStart) {
       startVideo();
     } else {
       stopVideo();
@@ -49,7 +54,7 @@ export const AppControls = () => {
       </div>
       <div
         className={`app-controls__button ${
-          isUserVideoActive ? '' : 'is-active'
+          isUserVideoActive ? 'is-active' : ''
         }`}
         onClick={() => handleVideoButton({ isStart: !isUserVideoActive })}
       >
@@ -57,8 +62,11 @@ export const AppControls = () => {
           width={34}
           height={34}
           fill={'white'}
-          isVideoOff={!isUserVideoActive}
+          isVideoOff={isUserVideoActive}
         />
+      </div>
+      <div>
+        <MediaSelectors />
       </div>
     </div>
   );

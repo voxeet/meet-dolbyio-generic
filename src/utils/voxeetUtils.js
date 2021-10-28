@@ -35,7 +35,17 @@ const createConference = (alias) => {
 
 // conference in/out
 const joinConference = (conf) => {
-  conference.join(conf, {});
+  return new Promise((resolve, reject) => {
+    conference
+      .join(conf, {})
+      .then((conf) => {
+        resolve(conf);
+      })
+      .catch((err) => {
+        console.error(err);
+        reject(err);
+      });
+  });
 };
 
 const leaveConference = () => {
@@ -44,12 +54,16 @@ const leaveConference = () => {
 
 // video
 const startVideo = () => {
-  conference
-    .startVideo(session.participant)
-    .then(() => {})
-    .catch((err) => {
-      console.error(err);
-    });
+  return new Promise((resolve, reject) => {
+    conference
+      .startVideo(session.participant)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 };
 
 const stopVideo = () => {

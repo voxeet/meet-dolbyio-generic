@@ -7,7 +7,7 @@ import ParticipantGridItem from './ParticipantGridItem/ParticipantGridItem';
 //styles
 import './ParticipantGrid.scss';
 
-export default function ParticipantGrid() {
+export default function ParticipantGrid({ isLoaded }) {
   const [participantList, setParticipantList] = useState([]);
   const ref = useRef();
 
@@ -34,7 +34,7 @@ export default function ParticipantGrid() {
           id: participant.id,
           participant: participant,
           stream: stream,
-          isVideo: false,
+          isVideo: stream.getVideoTracks().length > 0,
           isInactive: false,
         };
 
@@ -50,6 +50,7 @@ export default function ParticipantGrid() {
           participant: participant,
           stream: stream,
           isVideo: stream.getVideoTracks().length > 0,
+          isInactive: false,
         };
 
         newParticipantList[thisParticipentIndex] = newDetails;
@@ -118,12 +119,27 @@ export default function ParticipantGrid() {
 
   // assemble view
   const items = participantList.map((el) => {
-    return <ParticipantGridItem participantInfo={el} key={el.id} isSelf={ el.id === session.participant.id} />;
+    if (isLoaded) {
+      return (
+        <ParticipantGridItem
+          isLoaded={isLoaded}
+          participantInfo={el}
+          key={el.id}
+          isSelf={el.id === session.participant.id}
+        />
+      );
+    } else {
+      return <div>Video not loaded yet</div>;
+    }
   });
 
-  return (
-    <div className="participant-grid" ref={ref}>
-      {items}
-    </div>
-  );
+  if (isLoaded) {
+    return (
+      <div className="participant-grid" ref={ref}>
+        {items}
+      </div>
+    );
+  } else {
+    return <div>Loading Video...</div>;
+  }
 }
