@@ -5,7 +5,7 @@ export const CallToActionButton = () => (
       Feeling inspired? Customize your <br /> own Dolby.io meeting experience!
     </div>
     <a
-      href="https://dolby.io/products/interactivity-apis"
+      href="https://docs.dolby.io/communications-apis/docs/generic-meeting"
       target="_blank"
       rel="noreferrer"
     >
